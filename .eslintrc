@@ -1,0 +1,30 @@
+{
+  "extends": [
+    "airbnb",
+    "prettier"
+  ],
+  "plugins": [
+    "prettier",
+    "only-warn"
+  ],
+  "parser": "babel-eslint",
+  "rules": {
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".js",
+          ".jsx"
+        ]
+      }
+    ],
+    "jsx-quotes": [
+      "warn",
+      "prefer-single"
+    ]
+  },
+  "env": {
+    "jest": true,
+    "browser": true
+  }
+}

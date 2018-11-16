@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExpenseListItem - gas bill 1`] = `
+<div>
+  <NavLink
+    activeClassName="active"
+    aria-current="page"
+    exact={true}
+    to="/edit/1"
+  >
+    <h3>
+      Gas bill
+    </h3>
+  </NavLink>
+  <p>
+    4000
+     - 
+    0
+  </p>
+</div>
+`;
