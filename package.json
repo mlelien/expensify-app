@@ -57,6 +57,8 @@
   "scripts": {
     "dev": "webpack-dev-server --mode development --watch",
     "serve": "live-server dist",
+    "start": "node server/server.js",
+    "heroku-postbuild": "npm run build",
     "build": "webpack --mode production",
     "singlePath": "rc-autocomplete --src 'node_modules/react-toolbox/components/**/*.js'",
     "generate": "rc-autocomplete",
