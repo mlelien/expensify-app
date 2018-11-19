@@ -1,8 +1,7 @@
 // Get visible expenses
 import moment from 'moment';
 
-const getVisibleExpenses = (expenses, {text, sortBy, startDate, endDate}) => {
-  return expenses.filter((expense) => {
+const getVisibleExpenses = (expenses, {text, sortBy, startDate, endDate}) => expenses.filter((expense) => {
     const createdAtMoment = moment(expense.createdAt);
     
     const startDateFlag = startDate ? (startDate.isSameOrBefore(createdAtMoment, 'day')) : true;
@@ -17,6 +16,5 @@ const getVisibleExpenses = (expenses, {text, sortBy, startDate, endDate}) => {
       return a.amount < b.amount ? 1 : -1;
     }
   });
-};
 
 export default getVisibleExpenses;
