@@ -1,5 +1,5 @@
 import moment from "moment";
-import getVisibleExpenses from "../../selectors/expenses";
+import getVisibleExpenses from "../../selectors/getVisibleExpenses";
 import expenses from "../fixtures/expenses";
 
 test("filter by text", () => {
