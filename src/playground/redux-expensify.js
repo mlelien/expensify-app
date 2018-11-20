@@ -10,7 +10,6 @@ import { createStore, combineReducers } from 'redux';
 
 store.subscribe(() => {
   const state = store.getState();
-  console.log(getVisibleExpenses(state.expenses, state.filters));
 });
 
 const expense1Action = store.dispatch(addExpense({description: 'Rent', amount: 100, createdAt: 100}));
