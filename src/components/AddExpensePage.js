@@ -1,14 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { addExpense } from "../actions/expenses";
+import { startAddExpense } from "../actions/expenses";
 import ExpenseForm from "./ExpenseForm";
 
 export class AddExpensePage extends React.Component {
   onSubmit = expense => {
-    const { addExpense: addExpenseLocal, history } = this.props;
+    const { startAddExpense: startAddExpenseLocal, history } = this.props;
 
-    addExpenseLocal(expense);
+    startAddExpenseLocal(expense);
     history.push("/");
   };
 
@@ -23,14 +23,14 @@ export class AddExpensePage extends React.Component {
 }
 
 AddExpensePage.propTypes = {
-  addExpense: PropTypes.func.isRequired,
+  startAddExpense: PropTypes.func.isRequired,
   history: PropTypes.shape({
     push: PropTypes.func.isRequired
   }).isRequired
 };
 
 const mapDispatchToProps = dispatch => ({
-  addExpense: expense => dispatch(addExpense(expense))
+  startAddExpense: expense => dispatch(startAddExpense(expense))
 });
 
 export default connect(
