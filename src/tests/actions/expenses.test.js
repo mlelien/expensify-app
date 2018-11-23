@@ -1,4 +1,10 @@
-import { addExpense, removeExpense, editExpense } from '../../actions/expenses';
+import thunk from 'redux-thunk';
+import configureMockStore from 'redux-mock-store';
+import { addExpense, removeExpense, editExpense, startAddExpense } from '../../actions/expenses';
+import expenses from '../fixtures/expenses';
+import database from '../../../firebase/firebase';
+
+const createMockStore = configureMockStore([thunk]);
 
 test('removeExpense test', () => {
   const result = removeExpense({id: '123'});
@@ -19,34 +25,69 @@ test('editExpense test', () => {
   });
 });
 
-test('addExpense with values', () => {
-  const expenseData = {
-    description: 'Gas Bill',
-    note: 'Utilities', 
-    amount: 10000, 
-    createdAt: 1000
-  };
-
-  const result = addExpense(expenseData);
+test('addExpense test', () => {
+  const expense = expenses[0];
+  const result = addExpense(expense);
   expect(result).toEqual({
     type: 'ADD_EXPENSE',
-    expense: {
-      ...expenseData,
-      id: expect.any(String)
-    }
+    expense
   });
 });
 
-test('addExpense with defaults', () => {
-  const result = addExpense();
-  expect(result).toEqual({
-    type: 'ADD_EXPENSE',
-    expense: {
-      id: expect.any(String),
-      description: '',
-      note: '', 
-      amount: 0, 
-      createdAt: 0
-    }
-  });
+test('startAddExpense - default', (done) => {
+  const defaultExpenseData = {
+    description: '',
+    note: '',
+    amount: 0, 
+    createdAt: 0
+  };
+  const store = createMockStore({});
+
+  store.dispatch(startAddExpense({}))
+        .then(() => {
+          const actions = store.getActions();
+          expect(actions[0]).toEqual({
+            type: 'ADD_EXPENSE',
+            expense: {
+              ...defaultExpenseData,
+              id: expect.any(String)
+            }
+          });
+
+          return database.ref(`expenses/${actions[0].expense.id}`).once('value');
+       })
+        .then((snapshot) => {
+          expect(snapshot.val()).toEqual(defaultExpenseData);
+          done();
+        });
+});
+
+test('startAddExpense - value', (done) => {
+  const expenseData = {
+    description: 'Flour',
+    note: 'never in house',
+    amount: 50, 
+    createdAt: 1000
+  };
+
+  const store = createMockStore(expenseData);
+
+  store.dispatch(startAddExpense(expenseData))
+       .then(() => {
+         const actions = store.getActions();
+         expect(actions.length).toBe(1);
+         expect(actions[0]).toEqual({
+          type: 'ADD_EXPENSE',
+          expense: {
+            id: expect.any(String),
+            ...expenseData
+          }
+         });
+
+         return database.ref(`expenses/${actions[0].expense.id}`).once('value');
+       })
+       .then((snapshot) => {
+         expect(snapshot.val()).toEqual(expenseData);
+         done();
+       });
 });
