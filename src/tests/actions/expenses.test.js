@@ -18,7 +18,7 @@ beforeEach((done) => {
 
 const createMockStore = configureMockStore([thunk]);
 
-test('removeExpense test', () => {
+test('removeExpense action', () => {
   const result = removeExpense({id: '123'});
   expect(result).toEqual({
     type: 'REMOVE_EXPENSE',
@@ -26,7 +26,7 @@ test('removeExpense test', () => {
   });
 });
 
-test('startRemoveExpense test', (done) => {
+test('startRemoveExpense action', (done) => {
   const { id } = expenses[0];
   const store = createMockStore({ id });
   
@@ -47,7 +47,7 @@ test('startRemoveExpense test', (done) => {
        });
 });
 
-test('editExpense test', () => {
+test('editExpense action', () => {
   const result = editExpense('123', { note: 'New note value' });
   expect(result).toEqual({
     type: 'EDIT_EXPENSE',
@@ -58,7 +58,7 @@ test('editExpense test', () => {
   });
 });
 
-test('startEditExpense test', (done) => {
+test('startEditExpense action', (done) => {
   const { id } = expenses[1];
   const updates = {
     description: 'Trident',
@@ -85,7 +85,7 @@ test('startEditExpense test', (done) => {
     });
 });
 
-test('addExpense test', () => {
+test('addExpense action', () => {
   const expense = expenses[0];
   const result = addExpense(expense);
   expect(result).toEqual({
@@ -122,7 +122,7 @@ test('startAddExpense - default', (done) => {
         });
 });
 
-test('startAddExpense - value', (done) => {
+test('startAddExpense - action', (done) => {
   const expenseData = {
     description: 'Flour',
     note: 'never in house',
@@ -152,7 +152,7 @@ test('startAddExpense - value', (done) => {
        });
 });
 
-test('setExpenses test', () => {
+test('setExpenses action', () => {
   const action = setExpenses(expenses);
   expect(action).toEqual({
     type: 'SET_EXPENSES',
