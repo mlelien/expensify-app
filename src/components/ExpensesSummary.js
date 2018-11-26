@@ -4,7 +4,6 @@ import numeral from 'numeral';
 import PropTypes from "prop-types";
 import getVisibleExpenses from "../selectors/getVisibleExpenses";
 import getExpensesTotal from "../selectors/getExpensesTotal";
-import { startSetExpenses } from '../actions/expenses';
 
 export const ExpensesSummary = (props) => {
   const { expensesCount, totalAmount } = props;

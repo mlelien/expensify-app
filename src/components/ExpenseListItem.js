@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import moment from 'moment';
 import numeral from 'numeral';
 
-export const ExpenseListItem = ({ id, description, amount, createdAt }) => (
+const ExpenseListItem = ({ id, description, amount, createdAt }) => (
   <div>
     <NavLink exact to={`/edit/${id}`}><h3>{description}</h3></NavLink>
     <p>
