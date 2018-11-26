@@ -63,3 +63,13 @@ test("editExpense -- fail", () => {
   const state = expensesReducer(expenses, action);
   expect(state).toEqual(expenses);
 });
+
+test('setExpenses', () => {
+  const action = {
+    type: 'SET_EXPENSES',
+    expenses: [expenses[1]]
+  };
+
+  const state = expensesReducer({}, action);
+  expect(state).toEqual([expenses[1]]);
+});
