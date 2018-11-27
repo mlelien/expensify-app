@@ -45,7 +45,7 @@ EditExpensePage.propTypes = {
 };
 
 const mapStateToProps = (state, props) => ({
-  expense: state.expenses.find(expense => expense.id === props.match.params.id)
+  expense: state.expenses.find(expense => expense.id === props.computedMatch.params.id)
 });
 
 const mapDispatchToProps = dispatch => ({
