@@ -3,13 +3,13 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import ExpenseForm from "./ExpenseForm";
 import { startEditExpense, startRemoveExpense } from "../actions/expenses";
-import { historyPropTypes, expensePropTypes } from "../lib/proptypes";
+import { expensePropTypes } from "../lib/proptypes";
+import { history } from '../routers/AppRouter';
 
 export class EditExpensePage extends React.Component {
   onSubmit = expense => {
     const {
       startEditExpense: startEditExpenseLocal,
-      history,
       expense: { id }
     } = this.props;
     startEditExpenseLocal(id, expense);
@@ -20,7 +20,6 @@ export class EditExpensePage extends React.Component {
     const {
       startRemoveExpense: startRemoveExpenseLocal,
       expense: { id },
-      history
     } = this.props;
     startRemoveExpenseLocal(id);
     history.push("/dashboard");
@@ -42,7 +41,6 @@ export class EditExpensePage extends React.Component {
 EditExpensePage.propTypes = {
   startEditExpense: PropTypes.func.isRequired,
   startRemoveExpense: PropTypes.func.isRequired,
-  history: historyPropTypes.isRequired,
   expense: expensePropTypes.isRequired
 };
 

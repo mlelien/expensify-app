@@ -7,7 +7,3 @@ export const expensePropTypes = PropTypes.shape({
   amount: PropTypes.number.isRequired,
   createdAt: PropTypes.number
 });
-
-export const historyPropTypes = PropTypes.shape({
-  push: PropTypes.func.isRequired
-});
