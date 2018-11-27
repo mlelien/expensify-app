@@ -13,7 +13,7 @@ export class EditExpensePage extends React.Component {
       expense: { id }
     } = this.props;
     startEditExpenseLocal(id, expense);
-    history.push("/");
+    history.push("/dashboard");
   };
 
   onRemove = () => {
@@ -23,7 +23,7 @@ export class EditExpensePage extends React.Component {
       history
     } = this.props;
     startRemoveExpenseLocal(id);
-    history.push("/");
+    history.push("/dashboard");
   };
 
   render() {

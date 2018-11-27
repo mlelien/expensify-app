@@ -21,14 +21,6 @@ exports[`render Header 1`] = `
   >
     Create Expense
   </NavLink>
-  <NavLink
-    activeClassName="is-active"
-    aria-current="page"
-    exact={true}
-    to="/help"
-  >
-    Help
-  </NavLink>
   <button
     onClick={[MockFunction]}
     type="submit"

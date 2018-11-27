@@ -31,12 +31,12 @@ test("EditExpensePage -- onRemove", () => {
   const { id } = expenses[1];
 
   expect(startRemoveExpense).toHaveBeenCalledWith(id);
-  expect(history.push).toHaveBeenCalledWith("/");
+  expect(history.push).toHaveBeenCalledWith("/dashboard");
 });
 
 test("EditExpensePage -- onSubmit", () => {
   wrapper.find("ExpenseForm").simulate("submit", expenses[1]);
 
   expect(startEditExpense).toHaveBeenCalledWith(expenses[1].id, expenses[1]);
-  expect(history.push).toHaveBeenCalledWith("/");
+  expect(history.push).toHaveBeenCalledWith("/dashboard");
 });

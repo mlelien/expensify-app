@@ -4,14 +4,12 @@ import { AddExpensePage } from "../../components/AddExpensePage";
 import expenses from "../fixtures/expenses";
 
 let startAddExpense;
-let history;
 let wrapper;
 
 beforeEach(() => {
   startAddExpense = jest.fn();
-  history = { push: jest.fn() };
   wrapper = shallow(
-    <AddExpensePage startAddExpense={startAddExpense} history={history} />
+    <AddExpensePage startAddExpense={startAddExpense} />
   );
 });
 
@@ -22,5 +20,5 @@ test("AddExpensePage -- render", () => {
 test("AddExpensePage -- onSubmit - Gum", () => {
   wrapper.find("ExpenseForm").prop("onSubmit")(expenses[1]);
   expect(startAddExpense).toHaveBeenCalledWith(expenses[1]);
-  expect(history.push).toHaveBeenCalledWith("/");
+  //expect(history.push).toHaveBeenCalledWith("/dashboard");
 });

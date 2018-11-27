@@ -12,7 +12,6 @@ export const Header = (props) => {
       <h1>Expensify</h1>
       <NavLink exact to='/dashboard' activeClassName='is-active'>Dashboard</NavLink>
       <NavLink exact to='/create' activeClassName='is-active'>Create Expense</NavLink>
-      <NavLink exact to='/help' activeClassName='is-active'>Help</NavLink>
       <button type='submit' onClick={startLogoutLocal}>Logout</button>
     </header>
   )

@@ -3,13 +3,14 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { startAddExpense } from "../actions/expenses";
 import ExpenseForm from "./ExpenseForm";
+import { history } from '../routers/AppRouter';
 
 export class AddExpensePage extends React.Component {
   onSubmit = expense => {
-    const { startAddExpense: startAddExpenseLocal, history } = this.props;
+    const { startAddExpense: startAddExpenseLocal } = this.props;
 
     startAddExpenseLocal(expense);
-    history.push("/");
+    history.push("/dashboard");
   };
 
   render() {
@@ -24,9 +25,9 @@ export class AddExpensePage extends React.Component {
 
 AddExpensePage.propTypes = {
   startAddExpense: PropTypes.func.isRequired,
-  history: PropTypes.shape({
-    push: PropTypes.func.isRequired
-  }).isRequired
+  // history: PropTypes.shape({
+  //   push: PropTypes.func.isRequired
+  // }).isRequired
 };
 
 const mapDispatchToProps = dispatch => ({
