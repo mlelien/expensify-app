@@ -41,7 +41,7 @@ test('startRemoveExpense action', (done) => {
             id
           });
 
-          return database.ref(`expenses/${id}`).once('value')
+          return database.ref(`users/${uid}/expenses/${id}`).once('value')
        })
        .then((snapshot) => {
          expect(snapshot.val()).toBe(null);
