@@ -2,23 +2,26 @@
 
 exports[`ExpenseForm -- Gas Bill 1`] = `
 <div>
-  ExpenseForm
   <form
+    className="form"
     onSubmit={[Function]}
   >
     <input
+      className="text-input"
       onChange={[Function]}
       placeholder="Description"
       type="text"
       value="Gas bill"
     />
     <input
+      className="text-input"
       onChange={[Function]}
       placeholder="Amount"
       type="text"
       value="40"
     />
     <textarea
+      className="textarea"
       onChange={[Function]}
       placeholder="Note (optional)"
     />
@@ -111,34 +114,40 @@ exports[`ExpenseForm -- Gas Bill 1`] = `
       withFullScreenPortal={false}
       withPortal={false}
     />
-    <button
-      type="submit"
-    >
-      Add Expense
-    </button>
+    <div>
+      <button
+        className="button"
+        type="submit"
+      >
+        Save Expense
+      </button>
+    </div>
   </form>
 </div>
 `;
 
 exports[`ExpenseForm -- no data 1`] = `
 <div>
-  ExpenseForm
   <form
+    className="form"
     onSubmit={[Function]}
   >
     <input
+      className="text-input"
       onChange={[Function]}
       placeholder="Description"
       type="text"
       value=""
     />
     <input
+      className="text-input"
       onChange={[Function]}
       placeholder="Amount"
       type="text"
       value=""
     />
     <textarea
+      className="textarea"
       onChange={[Function]}
       placeholder="Note (optional)"
     />
@@ -231,37 +240,45 @@ exports[`ExpenseForm -- no data 1`] = `
       withFullScreenPortal={false}
       withPortal={false}
     />
-    <button
-      type="submit"
-    >
-      Add Expense
-    </button>
+    <div>
+      <button
+        className="button"
+        type="submit"
+      >
+        Save Expense
+      </button>
+    </div>
   </form>
 </div>
 `;
 
 exports[`ExpenseForm -- onSubmit empty 1`] = `
 <div>
-  ExpenseForm
-  <p>
+  <p
+    className="form__error"
+  >
     Please type in amount and description
   </p>
   <form
+    className="form"
     onSubmit={[Function]}
   >
     <input
+      className="text-input"
       onChange={[Function]}
       placeholder="Description"
       type="text"
       value=""
     />
     <input
+      className="text-input"
       onChange={[Function]}
       placeholder="Amount"
       type="text"
       value=""
     />
     <textarea
+      className="textarea"
       onChange={[Function]}
       placeholder="Note (optional)"
     />
@@ -354,11 +371,14 @@ exports[`ExpenseForm -- onSubmit empty 1`] = `
       withFullScreenPortal={false}
       withPortal={false}
     />
-    <button
-      type="submit"
-    >
-      Add Expense
-    </button>
+    <div>
+      <button
+        className="button"
+        type="submit"
+      >
+        Save Expense
+      </button>
+    </div>
   </form>
 </div>
 `;
